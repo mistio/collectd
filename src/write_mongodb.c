@@ -195,7 +195,7 @@ static int wm_write (const data_set_t *ds, /* {{{ */
   /* Assert if the connection has been established */
   assert (mongo_is_connected (node->conn));
 
-  status = mongo_insert (node->conn, collection_name, bson_record);
+  status = mongo_insert (node->conn, collection_name, bson_record, NULL);
   if(status != MONGO_OK)
   {
     ERROR ( "write_mongodb plugin: error inserting record: %d", node->conn->err);
